@@ -3,6 +3,31 @@
 Taxonomic classification, genome coverage, and embedding-based clustering of 12
 Zephyr Oxford Nanopore pools.
 
+## Data
+
+There are two kinds of input, kept separate.
+
+**Sample pools (the 12 Zephyr pools).** These are the Oxford Nanopore metagenomic
+read sets we analysed, from the Zephyr respiratory-virus dataset in the work-test
+brief. They are ~149 MB and are not committed; the scripts read them from `data/`.
+The 12 pools span 4 sites (BC, BoDT, Copl, MBTA_Ha) and January 2025 to June 2026:
+
+```
+250129-BoDT-NAS        260109-BoDT-NAS-P1     260401-BC-NAS-P1
+250812-MBTA_Ha-NAS     260115-Copl-NAS-P1     260415-BC-NAS-P1
+251217-BoDT-NAS-P1     260304-BC-NAS-P1       260514-BoDT-NAS-P1
+251219-MBTA_Ha-NAS-P1  260313-MBTA_Ha-NAS-P1  260613-MBTA_Ha-NAS-P1
+```
+
+Naming is `YYMMDD-site-NAS[-P1]`. Even without the raw pools, the per-pool
+detections are committed in `results/virus_by_pool.csv`, so the findings are
+inspectable directly. Source for the pools: <add Zephyr dataset link here>
+
+**Reference panels (committed, in `refs/`).** `respiratory_panel.fasta` is the
+panel of 37 RefSeq genomes used for the Part 2 taxonomy. `rhino_refs.fasta` is the
+48 reference rhinovirus genomes (16 each of A, B, C) used for the serotype
+demonstration. These are reference databases, not the sample pools.
+
 ## Layout
 
 ```
@@ -17,7 +42,9 @@ part3_step6_skani.py        skani ANI within-cluster validity check             
 part3_step7_robustness.py   permutation null + leave-one-out on the ARI            -> fig7
 part3_fetch_rhino_refs.py   fetch 48 reference rhinovirus genomes from NCBI
 part3_step8_rhino_serotypes.py  place our rhinoviruses among reference types       -> fig8
-refs/respiratory_panel.fasta   37 RefSeq genomes
+refs/respiratory_panel.fasta   37 RefSeq genomes (Part 2 taxonomy panel)
+refs/rhino_refs.fasta          48 reference rhinovirus genomes (serotype demo)
+data/                       the 12 Zephyr pools (not committed; see Data above)
 results/                    coverage / consensus / cluster / ANI tables
 figures/                    fig1..fig8
 ```
@@ -42,8 +69,8 @@ python part3_fetch_rhino_refs.py       # needs internet (NCBI Entrez)
 python part3_step8_rhino_serotypes.py
 ```
 
-Raw pools (~149 MB) and BAM files are not committed (see `.gitignore`); the scripts
-expect the pools under `data/`.
+The raw pools and BAM files are not committed (see `.gitignore` and the Data
+section); the scripts expect the pools under `data/`.
 
 ## Results at a glance
 
