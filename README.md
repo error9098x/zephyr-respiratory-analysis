@@ -12,6 +12,7 @@ part3_step1_consensus.py    build consensus genomes (samtools consensus)
 part3_step2_sourmash.py     nucleotide MinHash baseline clustering                 -> fig3
 part3_step3_longorf.py      longest-ORF replicase-proxy marker per genome
 part3_step4_esm_cluster.py  ESM2-8M protein embedding + clustering                 -> fig4
+part3_step5_esm_sweep.py    ESM2 model-size sweep (8M -> 650M)                     -> fig6
 part3_step6_skani.py        skani ANI within-cluster validity check                -> fig5
 refs/respiratory_panel.fasta   37 RefSeq genomes
 results/                    coverage / consensus / cluster / ANI tables
@@ -43,7 +44,8 @@ expect the pools under `data/`.
   coverage. Influenza A only partial, due to an out-of-date reference.
 - Clustering baseline (sourmash MinHash): ARI 0.88, NMI 0.96.
 - Learned tier (ESM2-8M on the replicase marker): ARI 0.52; recovers family/genus
-  structure but is coarser at species level.
+  structure but is coarser at species level. Scaling ESM2 from 8M to 650M does not
+  change this at all (flat ARI), so the limit is the marker, not model capacity.
 - skani ANI: coronaviruses confirm same-species (96-99.9%); within-species
   rhinovirus pairs fall below the 80% screen, i.e. they are different serotypes.
   One reference per rhinovirus species is too coarse for this data.

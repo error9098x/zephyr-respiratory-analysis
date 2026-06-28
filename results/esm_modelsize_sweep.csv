@@ -1,0 +1,5 @@
+model,params_M,dim,ARI,NMI,RSV_split,rhino_ARI
+8M,8,320,0.524,0.875,False,0.013
+35M,35,480,0.524,0.875,False,0.013
+150M,150,640,0.524,0.875,False,0.013
+650M,650,1280,0.524,0.875,False,0.013
