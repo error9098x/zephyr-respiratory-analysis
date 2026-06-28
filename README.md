@@ -21,7 +21,9 @@ The 12 pools span 4 sites (BC, BoDT, Copl, MBTA_Ha) and January 2025 to June 202
 
 Naming is `YYMMDD-site-NAS[-P1]`. Even without the raw pools, the per-pool
 detections are committed in `results/virus_by_pool.csv`, so the findings are
-inspectable directly. Source for the pools: <add Zephyr dataset link here>
+inspectable directly. Source for the pools: the Zephyr respiratory viral reads at
+https://data.securebio.org/zephyr/#respiratory-viral-reads (full read archive on
+the SRA, BioProject PRJNA1379685).
 
 **Reference panels (committed, in `refs/`).** `respiratory_panel.fasta` is the
 panel of 37 RefSeq genomes used for the Part 2 taxonomy. `rhino_refs.fasta` is the
