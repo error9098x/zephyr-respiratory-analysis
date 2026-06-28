@@ -1,0 +1,24 @@
+# raw data and large intermediates (not committed; see README for how to fetch)
+data/
+*.bam
+*.bam.bai
+results/*.bam
+results/*.bam.bai
+results/sketch.zip
+results/consensus/
+refs/*.mmi
+refs/*.fai
+
+# python
+.venv/
+__pycache__/
+*.pyc
+
+# internal scratch
+todo.md
+
+# write-up lives in the Google Doc, not the repo
+memo.md
+Zephyr-Memo.docx
+build_memo_docx.py
+part1_answer.md

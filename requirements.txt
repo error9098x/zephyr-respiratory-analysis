@@ -1,0 +1,8 @@
+biopython
+pandas
+scikit-learn
+scipy
+matplotlib
+sourmash
+torch
+fair-esm
