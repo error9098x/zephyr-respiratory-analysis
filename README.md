@@ -14,6 +14,9 @@ part3_step3_longorf.py      longest-ORF replicase-proxy marker per genome
 part3_step4_esm_cluster.py  ESM2-8M protein embedding + clustering                 -> fig4
 part3_step5_esm_sweep.py    ESM2 model-size sweep (8M -> 650M)                     -> fig6
 part3_step6_skani.py        skani ANI within-cluster validity check                -> fig5
+part3_step7_robustness.py   permutation null + leave-one-out on the ARI            -> fig7
+part3_fetch_rhino_refs.py   fetch 48 reference rhinovirus genomes from NCBI
+part3_step8_rhino_serotypes.py  place our rhinoviruses among reference types        -> fig8
 refs/respiratory_panel.fasta   37 RefSeq genomes
 results/                    coverage / consensus / cluster / ANI tables
 figures/                    fig1..fig5
@@ -49,3 +52,9 @@ expect the pools under `data/`.
 - skani ANI: coronaviruses confirm same-species (96-99.9%); within-species
   rhinovirus pairs fall below the 80% screen, i.e. they are different serotypes.
   One reference per rhinovirus species is too coarse for this data.
+- Robustness: permutation p = 0.0005 (sketch) and 0.0015 (embedding); leave-one-out
+  ARI stays 0.83-1.00 (sketch) and 0.39-0.65 (embedding). The agreement is not a
+  small-n fluke.
+- Serotype demonstration: against 48 reference rhinovirus genomes, each of our
+  same-species genomes matches a different reference type, confirming the serotype
+  diversity directly.
